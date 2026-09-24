@@ -8,10 +8,18 @@ export const LINKS = {
   coconalaAudio: "https://coconala.com/services/4393239",
   lancersAudio: "https://www.lancers.jp/menu/detail/1342608",
   coconalaProfile: "https://coconala.com/users/2811072",
+  crowdworksProfile: "https://crowdworks.jp/public/employees/2517531",
   lancersProfile: "https://www.lancers.jp/profile/markun1115",
   x: "https://x.com/marcus_narrator",
   narrationSample: "https://youtu.be/WLKWTIvK5sU",
   voiceSample: "https://youtu.be/1tKq_ienjHo",
+};
+
+// Figures copied from the public profiles; update the date whenever the numbers change.
+export const STATS = {
+  asOf: "2026年9月時点",
+  crowdworks: { rating: "5.0", reviews: 98, orders: 117, completion: 98 },
+  coconala: { rating: "5.0", reviews: 25 },
 };
 
 export const samples = {
@@ -70,6 +78,7 @@ export const services = [
     links: [
       { label: "ココナラ", url: LINKS.coconalaNarration },
       { label: "ランサーズ", url: LINKS.lancersNarration },
+      { label: "クラウドワークス", url: LINKS.crowdworksProfile },
     ],
   },
   {
@@ -128,7 +137,7 @@ export const faqs = {
   },
   howto: {
     q: "どこから依頼できますか？",
-    a: "このページのお問い合わせフォーム、またはココナラ・ランサーズからご依頼いただけます。まずは用途・原稿の文字数・ご希望の納期をお知らせください。",
+    a: "このページのお問い合わせフォーム、またはココナラ・ランサーズ・クラウドワークスからご依頼いただけます。まずは用途・原稿の文字数・ご希望の納期をお知らせください。",
   },
   vsAi: {
     q: "AIナレーションとの違いは何ですか？",

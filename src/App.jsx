@@ -1,4 +1,4 @@
-import { LINKS, samples, voiceGroups, works, homeFaqKeys, useCasePages, HOME, SITE_URL } from "./data.js";
+import { LINKS, STATS, samples, voiceGroups, works, homeFaqKeys, useCasePages, HOME, SITE_URL } from "./data.js";
 import { useSamplePlayer, SampleRow, Header, UseCaseLinks, Services, Faq, FaqJsonLd, Contact, Footer } from "./components.jsx";
 
 // Fixed heights so the server and client render the same markup.
@@ -41,16 +41,24 @@ function Hero({ player }) {
             <a className="btn btn--ghost" href="#contact">ご依頼・ご相談</a>
           </div>
           <a className="badge" href={LINKS.coconalaNarration} target="_blank" rel="noopener noreferrer">
-            <span className="badge__star">★ 5.0</span>
-            <span className="badge__text">ココナラ評価 25件すべて星5</span>
-            <span className="badge__note">（2026年9月時点）</span>
+            <span className="badge__star">★ {STATS.coconala.rating}</span>
+            <span className="badge__text">ココナラ評価 {STATS.coconala.reviews}件すべて星5</span>
+            <span className="badge__note">（{STATS.asOf}）</span>
           </a>
         </div>
-        {/* Placeholder until a portrait photo is ready */}
-        <div className={`wave${player.current ? " is-playing" : ""}`} aria-hidden="true">
-          {WAVE.map((h, i) => (
-            <i key={i} style={{ height: `${Math.round((h / 176) * 100)}%`, animationDelay: `${(i % 7) * 0.12}s` }} />
-          ))}
+        <div className="hero__side">
+          {/* Placeholder until a portrait photo is ready */}
+          <div className={`wave${player.current ? " is-playing" : ""}`} aria-hidden="true">
+            {WAVE.map((h, i) => (
+              <i key={i} style={{ height: `${Math.round((h / 176) * 100)}%`, animationDelay: `${(i % 7) * 0.12}s` }} />
+            ))}
+          </div>
+          <a className="stats" href={LINKS.crowdworksProfile} target="_blank" rel="noopener noreferrer">
+            <span className="stats__item"><b>{STATS.crowdworks.rating}</b><small>総合評価（{STATS.crowdworks.reviews}件）</small></span>
+            <span className="stats__item"><b>{STATS.crowdworks.orders}<i>件</i></b><small>受注実績</small></span>
+            <span className="stats__item"><b>{STATS.crowdworks.completion}<i>%</i></b><small>完了率</small></span>
+            <span className="stats__src">クラウドワークス（{STATS.asOf}）→</span>
+          </a>
         </div>
       </div>
     </header>
@@ -111,7 +119,7 @@ function Home({ player }) {
           <div className="container">
             <p className="eyebrow">Services</p>
             <h2 className="h2">ご依頼の窓口</h2>
-            <p className="lead">ココナラ・ランサーズからもご依頼いただけます。料金の詳細・評価は各ページをご覧ください。</p>
+            <p className="lead">ココナラ・ランサーズ・クラウドワークスからもご依頼いただけます。料金の詳細・評価は各ページをご覧ください。</p>
             <Services />
             <h3 className="subhead">用途別のご案内</h3>
             <UseCaseLinks />

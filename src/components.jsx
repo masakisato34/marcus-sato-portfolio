@@ -243,6 +243,7 @@ export function Footer() {
         <a href={LINKS.voiceSample} target="_blank" rel="noopener noreferrer">VOICE SAMPLE</a>
         <a href={LINKS.coconalaProfile} target="_blank" rel="noopener noreferrer">COCONALA</a>
         <a href={LINKS.lancersProfile} target="_blank" rel="noopener noreferrer">LANCERS</a>
+        <a href={LINKS.crowdworksProfile} target="_blank" rel="noopener noreferrer">CROWDWORKS</a>
       </div>
       <p className="footer__copy">© 2024–2026 Marcus Sato. All rights reserved.</p>
     </footer>
