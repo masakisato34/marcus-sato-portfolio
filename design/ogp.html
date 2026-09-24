@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Noto+Sans+JP:wght@500;700&display=block">
+<style>
+  html, body { margin: 0; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden; position: relative;
+    background: radial-gradient(ellipse 70% 90% at 80% 50%, #16305a 0%, #07111f 65%);
+    color: #f4f1ea; font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  }
+  .photo {
+    position: absolute; right: -30px; top: 0; height: 630px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 35%);
+  }
+  .text { position: absolute; left: 80px; top: 120px; }
+  .role { color: #e8c07a; font-weight: 700; font-size: 32px; letter-spacing: 0.08em; }
+  .role::before { content: ""; display: block; width: 72px; height: 4px; background: #e8c07a; margin-bottom: 28px; }
+  .en { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 120px; line-height: 1; margin-top: 26px; }
+  .ja { font-size: 28px; letter-spacing: 0.45em; color: #b9c2cf; margin-top: 18px; }
+  .lead { font-size: 30px; font-weight: 700; margin-top: 44px; line-height: 1.6; }
+  .url { position: absolute; left: 80px; bottom: 46px; font-size: 22px; color: #9aa6b6; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+  <img class="photo" src="photo_src.png" alt="">
+  <div class="text">
+    <div class="role">地上波CM・TV番組のナレーター</div>
+    <div class="en">Marcus Sato</div>
+    <div class="ja">マーカス佐藤</div>
+    <div class="lead">信頼の中低音で、<br>企業VP・CM・ドキュメンタリーに説得力を。</div>
+  </div>
+  <div class="url">marcus-sato.jp</div>
+</body>
+</html>
