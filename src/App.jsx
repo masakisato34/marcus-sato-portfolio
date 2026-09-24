@@ -1,62 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
+// Title, meta, OGP and JSON-LD live in index.html so crawlers see them without running JS.
 export default function App() {
   const [form, setForm] = useState({ name: "", email: "", company: "", style: "", message: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    // Structured Data (JSON-LD)
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "マーカス佐藤",
-      "alternateName": "Marcus Sato",
-      "jobTitle": "ナレーター",
-      "description": "プロのナレーター。企業VP・CM・ドキュメンタリー・YouTube・官公庁映像まで幅広く対応。感情豊かな表現で映像・音声コンテンツに命を吹き込む。",
-      "url": window.location.href,
-      "sameAs": [
-        "https://x.com/marcus_narrator",
-        "https://youtu.be/1tKq_ienjHo",
-        "https://youtu.be/WLKWTIvK5sU"
-      ],
-      "knowsAbout": ["ナレーション", "企業VP", "CMナレーション", "ドキュメンタリー", "YouTube動画", "官公庁映像", "ボイスオーバー"],
-      "offers": {
-        "@type": "Offer",
-        "description": "プロナレーションサービス。企業VP・CM・ドキュメンタリー・YouTube・官公庁映像対応。",
-        "availableLanguage": "Japanese"
-      },
-      "worksFor": [
-        { "@type": "Organization", "name": "チャンネル銀河" },
-        { "@type": "Organization", "name": "テレビユー福島" },
-        { "@type": "Organization", "name": "文化庁" }
-      ]
-    });
-    document.head.appendChild(script);
-
-    document.title = "マーカス佐藤 | プロナレーター・ボイスアーティスト";
-    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement("meta");
-    metaDesc.setAttribute("name", "description");
-    metaDesc.setAttribute("content", "プロナレーター マーカス佐藤の公式サイト。企業VP・CM・ドキュメンタリー・YouTube・官公庁映像まで対応。感情豊かな表現で映像に命を吹き込みます。お仕事のご依頼はこちらから。");
-    document.head.appendChild(metaDesc);
-
-    const ogTitle = document.createElement("meta");
-    ogTitle.setAttribute("property", "og:title");
-    ogTitle.setAttribute("content", "マーカス佐藤 | プロナレーター");
-    document.head.appendChild(ogTitle);
-
-    const ogDesc = document.createElement("meta");
-    ogDesc.setAttribute("property", "og:description");
-    ogDesc.setAttribute("content", "感情と知性が交差する声で、あなたのコンテンツに命を吹き込む。企業VP・CM・ドキュメンタリー対応のプロナレーター。");
-    document.head.appendChild(ogDesc);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -122,6 +71,36 @@ export default function App() {
     { icon: "🏛️", label: "クール／知的／誠実", desc: "企業VP、官公庁向けに" },
   ];
 
+  const COCONALA_NARRATION = "https://coconala.com/services/3195170";
+
+  const services = [
+    {
+      title: "ナレーション収録",
+      desc: "企業VP・CM・ドキュメンタリー・YouTube・官公庁映像。事前のヒアリングでトーンをすり合わせて収録します。",
+      links: [
+        { label: "ココナラ", url: COCONALA_NARRATION },
+        { label: "ランサーズ", url: "https://www.lancers.jp/menu/detail/1277099" },
+      ],
+    },
+    {
+      title: "声入り15秒 商品紹介・PR動画",
+      badge: "NEW",
+      desc: "ナレーションの収録から動画の編集まで一人で担当。写真・動画素材と原稿から、プロの声が入った短い動画を制作します。",
+      links: [
+        { label: "ココナラ", url: "https://coconala.com/services/4393214" },
+        { label: "ランサーズ", url: "https://www.lancers.jp/menu/detail/1342606" },
+      ],
+    },
+    {
+      title: "ナレーション音声の編集",
+      desc: "収録済みの声のカット・間・音質・音量を、ナレーターが聞こえ方から整えます。",
+      links: [
+        { label: "ココナラ", url: "https://coconala.com/services/4393239" },
+        { label: "ランサーズ", url: "https://www.lancers.jp/menu/detail/1342608" },
+      ],
+    },
+  ];
+
   const inputStyle = {
     width: "100%", padding: "14px 16px",
     background: "rgba(255,255,255,0.04)", border: "1px solid #2d2040",
@@ -183,6 +162,17 @@ export default function App() {
             letterSpacing: "1px", fontWeight: "600", border: "1px solid #4c1d95",
           }}>▶ VOICE SAMPLE</a>
         </div>
+
+        <a href={COCONALA_NARRATION} target="_blank" rel="noopener noreferrer" style={{
+          display: "inline-flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: "2px 10px", marginBottom: "28px", whiteSpace: "nowrap",
+          padding: "8px 18px", border: "1px solid #2d2040", borderRadius: "999px",
+          color: "#d1d5db", textDecoration: "none", fontSize: "13px", letterSpacing: "0.5px",
+          background: "rgba(139, 92, 246, 0.06)",
+        }}>
+          <span style={{ color: "#fbbf24" }}>★ 5.0</span>
+          <span>ココナラ評価 25件すべて星5</span>
+          <span style={{ color: "#6b7280", fontSize: "11px" }}>（2026年9月時点）</span>
+        </a>
 
         <a href="https://x.com/marcus_narrator" target="_blank" rel="noopener noreferrer" style={{
           display: "flex", alignItems: "center", gap: "8px",
@@ -256,6 +246,38 @@ export default function App() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Services */}
+      <section style={{ background: "linear-gradient(180deg, #0a0a0f 0%, #0f0a1e 50%, #0a0a0f 100%)", padding: "80px 24px" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <p style={{ fontSize: "12px", letterSpacing: "4px", color: "#8b5cf6", textTransform: "uppercase", marginBottom: "24px" }}>SERVICES</p>
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "700", lineHeight: "1.3", marginBottom: "16px", letterSpacing: "-0.5px" }}>
+            ご依頼の窓口
+          </h2>
+          <p style={{ fontSize: "15px", color: "#9ca3af", lineHeight: "1.8", marginBottom: "40px" }}>
+            ココナラ・ランサーズからもご依頼いただけます。料金の詳細・評価は各ページをご覧ください。
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
+            {services.map((s, i) => (
+              <div key={i} style={{ padding: "28px 24px", border: "1px solid #1f1b2e", borderRadius: "8px", background: "rgba(139, 92, 246, 0.04)", display: "flex", flexDirection: "column" }}>
+                <div style={{ fontSize: "16px", fontWeight: "600", marginBottom: "10px", color: "#e8e8f0", lineHeight: "1.5" }}>
+                  {s.title}
+                  {s.badge && <span style={{ marginLeft: "8px", fontSize: "10px", letterSpacing: "1px", color: "#8b5cf6", border: "1px solid #4c1d95", borderRadius: "3px", padding: "1px 6px", verticalAlign: "middle" }}>{s.badge}</span>}
+                </div>
+                <div style={{ fontSize: "13px", color: "#9ca3af", lineHeight: "1.8", marginBottom: "20px", flexGrow: 1 }}>{s.desc}</div>
+                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                  {s.links.map((l, li) => (
+                    <a key={li} href={l.url} target="_blank" rel="noopener noreferrer" style={{
+                      padding: "8px 16px", border: "1px solid #4c1d95", borderRadius: "4px",
+                      color: "#c4b5fd", textDecoration: "none", fontSize: "13px", letterSpacing: "0.5px",
+                    }}>{l.label}で見る →</a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -339,12 +361,14 @@ export default function App() {
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
         }}>Marcus Sato</p>
         <p style={{ fontSize: "12px", color: "#4b5563", letterSpacing: "2px", marginBottom: "24px" }}>NARRATOR & VOICE ARTIST</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: "24px", marginBottom: "32px" }}>
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "16px 24px", marginBottom: "32px" }}>
           <a href="https://x.com/marcus_narrator" target="_blank" rel="noopener noreferrer" style={{ color: "#6b7280", textDecoration: "none", fontSize: "13px", letterSpacing: "1px" }}>X</a>
           <a href="https://youtu.be/WLKWTIvK5sU" target="_blank" rel="noopener noreferrer" style={{ color: "#6b7280", textDecoration: "none", fontSize: "13px", letterSpacing: "1px" }}>NARRATION SAMPLE</a>
           <a href="https://youtu.be/1tKq_ienjHo" target="_blank" rel="noopener noreferrer" style={{ color: "#6b7280", textDecoration: "none", fontSize: "13px", letterSpacing: "1px" }}>VOICE SAMPLE</a>
+          <a href="https://coconala.com/users/2811072" target="_blank" rel="noopener noreferrer" style={{ color: "#6b7280", textDecoration: "none", fontSize: "13px", letterSpacing: "1px" }}>COCONALA</a>
+          <a href="https://www.lancers.jp/profile/markun1115" target="_blank" rel="noopener noreferrer" style={{ color: "#6b7280", textDecoration: "none", fontSize: "13px", letterSpacing: "1px" }}>LANCERS</a>
         </div>
-        <p style={{ fontSize: "12px", color: "#374151" }}>© 2024 Marcus Sato. All rights reserved.</p>
+        <p style={{ fontSize: "12px", color: "#374151" }}>© 2024–2026 Marcus Sato. All rights reserved.</p>
       </footer>
     </div>
   );
