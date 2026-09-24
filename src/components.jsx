@@ -71,7 +71,7 @@ export function Header() {
   );
 }
 
-export function UseCaseLinks() {
+export function UseCaseLinks({ exclude } = {}) {
   const items = [
     { href: "/narration/corporate-vp/", label: "企業VP・会社紹介のナレーション" },
     { href: "/narration/documentary/", label: "ドキュメンタリー・紀行番組のナレーション" },
@@ -79,7 +79,7 @@ export function UseCaseLinks() {
   ];
   return (
     <div className="usecases">
-      {items.map((i) => (
+      {items.filter((i) => i.href !== exclude).map((i) => (
         <a key={i.href} className="usecase" href={i.href}>{i.label}<span>→</span></a>
       ))}
     </div>

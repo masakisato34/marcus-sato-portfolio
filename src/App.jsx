@@ -133,7 +133,7 @@ function Home({ player }) {
   );
 }
 
-function UseCase({ page, player }) {
+function UseCase({ page, path, player }) {
   return (
     <>
       <header className="page-hero">
@@ -202,7 +202,7 @@ function UseCase({ page, player }) {
             <Faq keys={page.faqKeys} />
             <FaqJsonLd keys={page.faqKeys} />
             <h3 className="subhead">ほかの用途</h3>
-            <UseCaseLinks />
+            <UseCaseLinks exclude={path} />
           </div>
         </section>
 
@@ -214,11 +214,12 @@ function UseCase({ page, player }) {
 
 export default function App({ url }) {
   const player = useSamplePlayer();
-  const page = useCasePages[normalizePath(url)];
+  const path = normalizePath(url);
+  const page = useCasePages[path];
   return (
     <>
       <Header />
-      {page ? <UseCase page={page} player={player} /> : <Home player={player} />}
+      {page ? <UseCase page={page} path={path} player={player} /> : <Home player={player} />}
       <Footer />
     </>
   );
