@@ -75,7 +75,6 @@ export function UseCaseLinks({ exclude } = {}) {
   const items = [
     { href: "/narration/corporate-vp/", label: "企業VP・会社紹介のナレーション" },
     { href: "/narration/documentary/", label: "ドキュメンタリー・紀行番組のナレーション" },
-    { href: "/video/15sec-pr/", label: "声入り15秒 商品紹介・PR動画" },
   ];
   return (
     <div className="usecases">
@@ -206,7 +205,6 @@ export function Contact() {
                 <option value="自然な会話調">自然な会話調（商品紹介・説明動画）</option>
                 <option value="ドラマチックな演出">ドラマチックな演出（CM・ドキュメンタリー）</option>
                 <option value="クール／知的／誠実">クール／知的／誠実（企業VP・官公庁）</option>
-                <option value="声入り15秒動画">声入り15秒 商品紹介・PR動画</option>
                 <option value="その他・ご相談">その他・ご相談</option>
               </select>
             </div>
@@ -235,7 +233,6 @@ export function Footer() {
       <div className="footer__links">
         <a href="/narration/corporate-vp/">企業VP</a>
         <a href="/narration/documentary/">ドキュメンタリー</a>
-        <a href="/video/15sec-pr/">声入り15秒動画</a>
       </div>
       <div className="footer__links">
         <a href={LINKS.x} target="_blank" rel="noopener noreferrer">X</a>

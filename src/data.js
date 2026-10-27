@@ -3,10 +3,6 @@ export const SITE_URL = "https://www.marcus-sato.jp";
 export const LINKS = {
   coconalaNarration: "https://coconala.com/services/3195170",
   lancersNarration: "https://www.lancers.jp/menu/detail/1277099",
-  coconalaVideo: "https://coconala.com/services/4393214",
-  lancersVideo: "https://www.lancers.jp/menu/detail/1342606",
-  coconalaAudio: "https://coconala.com/services/4393239",
-  lancersAudio: "https://www.lancers.jp/menu/detail/1342608",
   coconalaProfile: "https://coconala.com/users/2811072",
   crowdworksProfile: "https://crowdworks.jp/public/employees/2517531",
   lancersProfile: "https://www.lancers.jp/profile/markun1115",
@@ -37,7 +33,7 @@ export const samples = {
 export const voiceGroups = [
   { title: "企業VP・会社紹介", desc: "信頼感と誠実さを大切にした、落ち着いた中低音の語り。", ids: ["vp-sincere", "vp-brand", "vp-era"], page: "/narration/corporate-vp/" },
   { title: "ドキュメンタリー・重厚な語り", desc: "映像に寄り添い、余韻を残す深い語り。", ids: ["documentary", "deep-richness"], page: "/narration/documentary/" },
-  { title: "CM・商品紹介", desc: "明るく、聞き取りやすく、商品の魅力をまっすぐ届ける語り。", ids: ["bright", "cm-cosmetics"], page: "/video/15sec-pr/" },
+  { title: "CM・商品紹介", desc: "明るく、聞き取りやすく、商品の魅力をまっすぐ届ける語り。", ids: ["bright", "cm-cosmetics"] },
   { title: "教材・案内・ごあいさつ", desc: "内容が自然に頭に入る、やわらかく明瞭な語り。", ids: ["education", "greeting"] },
 ];
 
@@ -81,31 +77,13 @@ export const services = [
       { label: "クラウドワークス", url: LINKS.crowdworksProfile },
     ],
   },
-  {
-    title: "声入り15秒 商品紹介・PR動画",
-    isNew: true,
-    page: "/video/15sec-pr/",
-    desc: "ナレーションの収録から動画の編集まで一人で担当。写真・動画素材と原稿から、プロの声が入った短い動画を制作します。",
-    links: [
-      { label: "ココナラ", url: LINKS.coconalaVideo },
-      { label: "ランサーズ", url: LINKS.lancersVideo },
-    ],
-  },
-  {
-    title: "ナレーション音声の編集",
-    desc: "収録済みの声のカット・間・音質・音量を、ナレーターが聞こえ方から整えます。",
-    links: [
-      { label: "ココナラ", url: LINKS.coconalaAudio },
-      { label: "ランサーズ", url: LINKS.lancersAudio },
-    ],
-  },
 ];
 
 // Answers follow the Coconala / Lancers listings as of 2026-09-24. Keep them in sync.
 export const faqs = {
   price: {
     q: "ナレーションの料金の目安は？",
-    a: "1,000文字までの原稿で10,000円からお受けしています。1,000文字を超える分は1文字10円が目安です。ココナラは税込、ランサーズは税抜の表示です。声入り15秒動画は25,000円から、音声編集はココナラで元音声5分以内5,000円からご用意しています。",
+    a: "1,000文字までの原稿で10,000円からお受けしています。1,000文字を超える分は1文字10円が目安です。ココナラは税込、ランサーズは税抜の表示です。",
   },
   delivery: {
     q: "納期はどのくらいですか？",
@@ -142,14 +120,6 @@ export const faqs = {
   vsAi: {
     q: "AIナレーションとの違いは何ですか？",
     a: "事前のヒアリングで用途やトーンをすり合わせ、読み分けや原稿のご相談にも人が応えます。収録した声はナレーター本人が聞こえ方を確かめながら編集して納品します。本人の声を商用利用込みでお届けするため、声の出どころもはっきりしています。",
-  },
-  videoPrice: {
-    q: "声入り15秒動画の料金は？",
-    a: "声入り15秒動画は25,000円からです。声入り30秒は40,000円、30秒の本編と15秒の短縮版のセットは50,000円です。声なし・音声の持ち込みでの編集はお見積もりします。",
-  },
-  videoMaterials: {
-    q: "動画の素材は何を用意すればいいですか？",
-    a: "写真・動画素材（合計5点まで・動画は合計3分以内）、ロゴ、確定した原稿をご用意ください。撮影や原稿作成、有料素材、AI映像の新規生成は別途お見積もりです。",
   },
 };
 
@@ -189,24 +159,6 @@ export const useCasePages = {
     links: [
       { label: "ココナラで見る", url: LINKS.coconalaNarration },
       { label: "ランサーズで見る", url: LINKS.lancersNarration },
-    ],
-  },
-  "/video/15sec-pr/": {
-    title: "声入り15秒 商品紹介・PR動画｜マーカス佐藤",
-    description: "TV・CMのナレーターが、ナレーションの収録から動画の編集まで一人で担当。写真・動画素材と原稿から、プロの声が入った15秒の商品紹介・PR動画を25,000円から制作します。",
-    eyebrow: "15sec PR Video",
-    h1: "声入り15秒 商品紹介・PR動画",
-    lead: "ナレーションの収録から動画の編集まで、ナレーター本人が一人で担当します。写真・動画素材と原稿をもとに、プロの声が入った短い動画を制作します。AIで作った映像にも、人の声で説得力を。",
-    forList: ["Web広告・SNS用の商品紹介", "店頭サイネージ・展示会の映像", "サービス紹介のショート動画", "採用・会社紹介の短尺版"],
-    sampleIds: ["cm-cosmetics", "bright"],
-    works: [
-      { title: "作例｜BRAITA 化粧品15秒CM（自主制作・AI映像）", url: "https://youtu.be/lahyPbnEh1w" },
-    ],
-    steps: ["用途・尺・素材・原稿・納期を確認します", "構成と演出を確認します", "ナレーションを収録し、編集して初稿を提出します", "修正のうえ納品します（軽微な修正2回まで）"],
-    faqKeys: ["videoPrice", "videoMaterials", "delivery", "commercial"],
-    links: [
-      { label: "ココナラで見る", url: LINKS.coconalaVideo },
-      { label: "ランサーズで見る", url: LINKS.lancersVideo },
     ],
   },
 };

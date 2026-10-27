@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/video/15sec-pr", "destination": "/", "permanent": false },
+    { "source": "/video/15sec-pr/", "destination": "/", "permanent": false }
+  ]
+}
